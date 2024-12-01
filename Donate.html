@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation donover</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        /* Donation styling */
+        .donover {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1050;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .donover-content {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+        }
+
+        .close-donover {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: black;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .donation-method {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #f8f9fa;
+        }
+
+        .donation-method:hover {
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .donation-method .method-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .icon-action {
+            cursor: pointer;
+            margin-left: 10px;
+            color: gray;
+        }
+
+        .icon-action:hover {
+            color: black;
+        }
+
+        /* Tooltip styling */
+        .tooltip-popup {
+            position: absolute;
+            background-color: #000;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            top: -30px;
+            right: 0;
+            display: none;
+        }
+
+        /* Share donover */
+        .share-donover {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1060;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .share-content {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+<button class="btn btn-primary" id="opendonoverBtn">Donate</button>
+
+<!-- Donation donover -->
+<div class="donover" id="donationdonover">
+    <div class="donover-content">
+        <span class="close-donover" id="closedonover">&times;</span>
+        <div class="section-title">Donate for the Organization!</div>
+
+        <div class="donation-method">
+            <div class="method-title">Directly Bank Transfer</div>
+            <p>Account Number: 2223330000456987 <i class="fa fa-clone icon-action" data-copy="2223330000456987"></i></p>
+            <p>Beneficiary Name: Organization</p>
+            <p>IFSC Code: WRDSBIOBNKPIS <i class="fa fa-clone icon-action" data-copy="WRDSBIOBNKPIS"></i></p>
+        </div>
+
+        <div class="donation-method">
+            <div class="method-title">UPI</div>
+            <p>Mobile Number: 8939406129 <i class="fa fa-clone icon-action" data-copy="8939406129"></i></p>
+            <p>UPI ID: 21551 <i class="fa fa-clone icon-action" data-copy="21551"></i></p>
+            <p>QR Code:</p>
+            <img src="your-qr-code-image.png" alt="QR Code" style="max-width: 100px;">
+        </div>
+    </div>
+</div>
+
+<!-- Share donover -->
+<div class="share-donover" id="sharedonover">
+    <div class="share-content">
+        <span class="close-donover" id="closeSharedonover">&times;</span>
+        <div class="section-title">Share</div>
+        <p>Would you like to connect your account details with the website?</p>
+        <button class="btn btn-success">Yes</button>
+        <button class="btn btn-danger" id="closeShare">No</button>
+    </div>
+</div>
+
+<script>
+    // Open Donation donover
+    document.getElementById('opendonoverBtn').addEventListener('click', () => {
+        document.getElementById('donationdonover').style.display = 'flex';
+    });
+
+    // Close Donation donover
+    document.getElementById('closedonover').addEventListener('click', () => {
+        document.getElementById('donationdonover').style.display = 'none';
+    });
+
+    // Close Donation donover on clicking outside the content
+    window.addEventListener('click', (e) => {
+        if (e.target === document.getElementById('donationdonover')) {
+            document.getElementById('donationdonover').style.display = 'none';
+        }
+    });
+
+    // Show Tooltip and Copy to Clipboard
+    document.querySelectorAll('.icon-action').forEach(icon => {
+        icon.addEventListener('click', (e) => {
+            const textToCopy = e.target.getAttribute('data-copy');
+            navigator.clipboard.writeText(textToCopy);
+            const tooltip = document.createElement('div');
+            tooltip.classList.add('tooltip-popup');
+            tooltip.innerText = 'Copied';
+            e.target.parentNode.appendChild(tooltip);
+            tooltip.style.display = 'block';
+            setTimeout(() => {
+                tooltip.remove();
+            }, 1500);
+        });
+    });
+
+    // Open Share donover
+    document.querySelectorAll('.fa-share').forEach(shareIcon => {
+        shareIcon.addEventListener('click', () => {
+            document.getElementById('sharedonover').style.display = 'flex';
+        });
+    });
+
+    // Close Share donover
+    document.getElementById('closeSharedonover').addEventListener('click', () => {
+        document.getElementById('sharedonover').style.display = 'none';
+    });
+
+    // Close Share donover on clicking outside the content
+    window.addEventListener('click', (e) => {
+        if (e.target === document.getElementById('sharedonover')) {
+            document.getElementById('sharedonover').style.display = 'none';
+        }
+    });
+
+    // Close Share donover when clicking "No"
+    document.getElementById('closeShare').addEventListener('click', () => {
+        document.getElementById('sharedonover').style.display = 'none';
+    });
+</script>
+
+</body>
+</html>

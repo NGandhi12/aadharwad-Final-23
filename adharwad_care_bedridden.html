@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aadharwad</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+<link href="/services.css" rel="stylesheet">
+<!-- <link href="/service.js"> -->
+
+</head>
+<body>
+
+     
+
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <!-- Logo -->
+            <a class="navbar-brand" href="#">
+                <img src="./img/adharwadlogo.png" alt="Logo" style="height: 40px;">
+            </a>
+      
+            <!-- Toggle Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+      
+            <!-- Navbar Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="/index.html" style="color: white;">Home</a>
+                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/adharwad_about.html">About Us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                            <li><a class="dropdown-item" href="/adharwad_care_OAH_seniorcitizens.html">Old Age Home for Senior Citizens</a></li>
+                        
+                                <li><a class="dropdown-item" href="/adharwad_care_bedridden.html">Bedridden & Critical Care Centre</a></li>
+                            <li><a class="dropdown-item" href="/adharwad_care_Assitedliving.html">Assisted Living Center</a></li>
+                            <li><a class="dropdown-item" href="/adharwad_care_adultdaycare.html">Adult Day Care Center</a></li>
+                            <li><a class="dropdown-item" href="/adharwad_care_empowring.html">Empowering Destitute Women</a></li>
+                            <li><a class="dropdown-item" href="/adharwad_care_education.html">Educational & Medical Support for Children</a></li>
+                            <li><a class="dropdown-item" href="/adharwad_care_physicallychallenged.html">NGO for Physically Challenged in Mumbai</a></li>
+                            <li><a class="dropdown-item" href="/adharwad_care_OAH_seniorcitizens.html">Old Age Home for Elderly People in Mumbai</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="mediaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Media
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="mediaDropdown">
+                            <li><a class="dropdown-item" href="/adharwad_blog.html">Blog</a></li>
+                            <li><a class="dropdown-item" href="/adharwad_events.html">Gallery</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="sosTab">SOS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-warning text-white" href="#"id="opendonoverBtn">Donate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="accountTab">
+                            <i class="fa fa-user"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+      </nav>
+      
+      <!-- donate -->
+       <!-- Donation donover -->
+      <div class="donover" id="donationdonover">
+        <div class="donover-content">
+            <span class="close-donover" id="closedonover">&times;</span>
+            <div class="section-title">Donate for the Organization!</div>
+      
+            <div class="donation-method">
+                <div class="method-title">Directly Bank Transfer</div>
+                <p>Account Number: 2223330000456987 <i class="fa fa-clone icon-action" data-copy="2223330000456987"></i></p>
+                <p>Beneficiary Name: Organization</p>
+                <p>IFSC Code: WRDSBIOBNKPIS <i class="fa fa-clone icon-action" data-copy="WRDSBIOBNKPIS"></i></p>
+            </div>
+      
+            <div class="donation-method">
+                <div class="method-title">UPI</div>
+                <p>Mobile Number: 8939406129 <i class="fa fa-clone icon-action" data-copy="8939406129"></i></p>
+                <p>UPI ID: 21551 <i class="fa fa-clone icon-action" data-copy="21551"></i></p>
+                <p>QR Code:</p>
+                <img src="your-qr-code-image.png" alt="QR Code" style="max-width: 100px;">
+            </div>
+        </div>
+      </div>
+      
+      <!-- Share donover -->
+      <div class="share-donover" id="sharedonover">
+        <div class="share-content">
+            <span class="close-donover" id="closeSharedonover">&times;</span>
+            <div class="section-title">Share</div>
+            <p>Would you like to connect your account details with the website?</p>
+            <button class="btn btn-success">Yes</button>
+            <button class="btn btn-danger" id="closeShare">No</button>
+        </div>
+      </div>
+      
+      <!-- Account Overlay -->
+      <div class="overlay" id="accountOverlay">
+        <span class="close-btn" id="closeAccountOverlay">&times;</span>
+        <div class="overlay-content">
+            <h4 class="text-center">Account</h4>
+            <form>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+                <p class="text-center mt-3">New User? <a href="#" class="text-primary">Sign Up</a></p>
+            </form>
+        </div>
+      </div>
+      
+      <!-- SOS Overlay -->
+      <div class="overlay" id="sosOverlay">
+        <span class="close-btn" id="closeSosOverlay">&times;</span>
+        <div class="overlay-content">
+            <h4 class="text-center mb-4">Emergency Services</h4>
+            <div class="sos-options">
+                <a href="#"><i class="fa fa-ambulance"></i> Urgent Medical Facility</a>
+                <a href="#"><i class="fa fa-car"></i> Emergency Transport</a>
+                <a href="#"><i class="fa fa-heart"></i> Urgent Donations</a>
+            </div>
+        </div>
+      </div>
+
+
+
+       <!-- Hero Section -->
+    <section class="hero bg-light text-white py-5" style="background-image: url('./photoss/2.png'); background-size: cover; background-position: center; height: 80vh;">
+        <div class="container">
+          <!-- <H1 ></a> Bedridden and critical care unit</H1> -->
+        </div>
+    </section>
+
+
+
+
+
+    <div class="icon-box">
+        <div class="icon-item" id="donateIcon">
+            <i class="fa fa-heart"></i>
+            <span>Donate</span>
+        </div>
+        <div class="icon-item" id="admissionIcon">
+            <i class="fa fa-id-card"></i>
+            <span>Admission</span>
+        </div>
+        <div class="icon-item" id="contactIcon">
+            <i class="fa fa-envelope"></i>
+            <span>Contact</span>
+        </div>
+        <div class="icon-item" id="reviewIcon">
+            <i class="fa fa-comments"></i>
+            <span>Review</span>
+        </div>
+    </div>
+    
+    <!-- Donate Tab Overlay -->
+    <div class="overlay" id="donateTabOverlay">
+        <div class="overlay-content">
+            <span class="close-btn">&times;</span>
+            <h4>Select a Cause</h4>
+            <div class="tab-item" id="oldAgeHome">Old Age Home for Senior Citizens</div>
+            <div class="tab-item" id="criticalCare">Bedridden & Critical Care Centre</div>
+            <div class="tab-item" id="assistedLiving">Assisted Living Center</div>
+            <div class="tab-item" id="dayCare">Adult Day Care Center</div>
+            <div class="tab-item" id="destituteWomen">Empowering Destitute Women</div>
+            <div class="tab-item" id="childSupport">Educational & Medical Support for Children</div>
+            <div class="tab-item" id="physicallyChallenged">NGO for Physically Challenged in Mumbai</div>
+        </div>
+    </div>
+    
+    <!-- Donation Details Overlay -->
+    <div class="overlay" id="donationOverlay">
+        <div class="overlay-content">
+            <span class="close-btn">&times;</span>
+            <span class="back-btn">&larr; Back</span>
+            <h4>Donation Information</h4>
+            <p><b>Bank Transfer:</b> 123456789</p>
+            <p><b>PayPal:</b> donate@organization.com</p>
+            <button onclick="copyText()" class="btn btn-secondary">Copy Details</button>
+            <img src="qr-code.png" alt="QR Code" class="donation-qr">
+        </div>
+    </div>
+    
+    <!-- Admission Form Overlay -->
+    <div class="overlay" id="admissionOverlay">
+        <div class="overlay-content">
+            <span class="close-btn">&times;</span>
+            <h4>Admission Form</h4>
+            <form>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="age" class="form-label">Age</label>
+                    <input type="number" class="form-control" id="age" required>
+                </div>
+                <div class="mb-3">
+                    <label for="condition" class="form-label">Condition</label>
+                    <input type="text" class="form-control" id="condition" required>
+                </div>
+                <div class="mb-3">
+                    <label for="service" class="form-label">Service</label>
+                    <input type="text" class="form-control" id="service" required>
+                </div>
+                <div class="mb-3">
+                    <label for="requirements" class="form-label">Requirements</label>
+                    <input type="text" class="form-control" id="requirements">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Contact Overlay -->
+    <div class="overlay" id="contactOverlay">
+        <div class="overlay-content">
+            <span class="close-btn">&times;</span>
+            <h4>Choose Your Contact Method</h4>
+            <button class="contact-option contact-gmail">Gmail</button>
+            <button class="contact-option contact-whatsapp">WhatsApp</button>
+            <button class="contact-option contact-sms">SMS</button>
+        </div>
+    </div>
+    
+    <!-- Review Overlay -->
+    <div class="overlay" id="reviewOverlay">
+        <div class="overlay-content">
+            <span class="close-btn">&times;</span>
+            <h4>Review</h4>
+    <section class="review-section">
+        <h2>Reviews</h2>
+        <div id="reviewCarousel" class="carousel slide" data-bs-ride="carousel">
+          <!-- Indicators -->
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#reviewCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#reviewCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#reviewCarousel" data-bs-slide-to="2"></button>
+          </div>
+    
+          <!-- Carousel Items -->
+          <div class="carousel-inner">
+            <!-- Review 1 -->
+            <div class="carousel-item active">
+              <p class="review-quote">
+                My father spent his golden years at Adharwad, and we couldn’t have been more pleased. The staff was incredibly caring and attentive, always going the extra mile to ensure his comfort and well-being. The facility was clean, well-maintained, and filled with warmth. It was truly a home away from home.
+              </p>
+              <img src="https://via.placeholder.com/50" alt="Reviewer Image" class="review-image">
+              <div class="review-author">Sandeep Prajapati</div>
+              <div class="review-author-subtitle">ABC Softwares</div>
+            </div>
+    
+            <!-- Review 2 -->
+            <div class="carousel-item">
+              <p class="review-quote">
+                Adharwad exceeded all expectations when it came to caring for my mother. The team created an environment of warmth and comfort, and their attention to detail made all the difference. I will always be grateful for the kindness and care they provided. It's a place of love and respect for everyone.
+              </p>
+              <img src="https://via.placeholder.com/50" alt="Reviewer Image" class="review-image">
+              <div class="review-author">Nisha Sharma</div>
+              <div class="review-author-subtitle">XYZ Technologies</div>
+            </div>
+    
+            <!-- Review 3 -->
+            <div class="carousel-item">
+              <p class="review-quote">
+                I am so glad we found Adharwad for my uncle. Their dedication to making him comfortable and happy was incredible. From the staff’s smiling faces to their excellent facilities, Adharwad offers a home-like experience for everyone who steps through their doors. Highly recommended!
+              </p>
+              <img src="https://via.placeholder.com/50" alt="Reviewer Image" class="review-image">
+              <div class="review-author">Ramesh Kumar</div>
+              <div class="review-author-subtitle">PQR Corp</div>
+            </div>
+          </div>
+    
+          <!-- Controls -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#reviewCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#reviewCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </section>    </div>
+    </div>
+
+    <div class="container">
+        <div class="ti-section">
+          <!-- Text Section -->
+          <div class="ti-text">
+            <h1>Bedridden & Critical Care Center </h1>
+            <p id="moreText">
+              The Adharwad Bedridden & Critical Care Center dedicates itself to providing specialized nursing care for individuals who are bedridden or in critical condition. Our facility boasts a team of on-call doctors, nurses, and physiotherapists available round-the-clock to respond to emergencies and deliver immediate medical attention. Our priority remains ensuring the comfort, safety, and well-being of our patients, particularly those necessitating intensive care and monitoring. Adharwad’s trained medical staff excels at managing various medical conditions and administering necessary treatments, including wound care, medication management, and rehabilitation services.
+ Additionally, our center boasts advanced medical equipment and technology, including oxygen concentrators, ECG machines, and nebulisers, to effectively support critical care needs. We understand the importance of timely intervention and personalised care, and we are commit to provide compassionate and comprehensive services to those in need. At Adharwad Critical Care Center, we strive to offer a supportive and healing environment where residents and their families can find comfort and peace of mind during challenging times.
+            </p>
+            <button class="btn btn-toggle" id="toggleButton" onclick="toggleText()">
+              Load More
+            </button>
+          </div>
+    
+          <!-- Image Section -->
+          <div class="ti-image">
+            <img
+              src="./img/DSC_3368-1200x700.jpg"
+              alt="Group of children smiling"
+            />
+          </div>
+        </div>
+      </div>
+
+
+      <section class="stats-section" style="background: linear-gradient(to right, #ff7e5f, #feb47b); color: white;">
+        <div class="container">
+          <div class="row">
+           
+                  <p>       <h3 style="text-align: left;"> Sucess</h3>Adharwad Old Age Home, a beacon of hope for the elderly, has been transforming lives with unwavering dedication and community support. This haven provides not just shelter, but a sense of belonging and purpose for those in need. With your generous contribution, you can empower Adharwad to continue its compassionate work, ensuring that every senior citizen receives the care, dignity, and love they deserve. Your support will directly impact the lives of countless individuals, making a lasting difference in their golden years. Join us in making Adharwad a home where every senior feels valued and cherished.</p>
+              </div>
+          </div> 
+        </div>
+      </section>
+
+
+
+      <div class="stats-container">
+        <div class="stat-box">
+            <i class="fa fa-thermometer"></i>
+            <div class="stat-number" data-target="12450">0</div>
+            <div class="stat-title">Current Patients Under Care</div>
+        </div>
+        <div class="stat-box">
+            <i class="fa fa-thumbs-up"></i>
+            <div class="stat-number" data-target="16">0</div>
+            <div class="stat-title">Patients Showing Recovery Progress</div>
+        </div>
+        <div class="stat-box">
+            <i class="fa fa-users"></i>
+            <div class="stat-number" data-target="1230">0</div>
+            <div class="stat-title">Recently Discharged Patients</div>
+        </div>
+        <div class="stat-box">
+            <i class="fa fa-exclamation-triangle"></i>  <!-- Updated Icon for Women Empowered -->
+            <div class="stat-number" data-target="1640">0</div>
+            <div class="stat-title">Urgent Cases</div>
+        </div>
+    </div>
+
+
+
+
+
+      <div class="container-fluid my-5">
+        <h1 class="title ">Opportunities</h1>
+        <div class="row g-3" style="margin-left: 15px;">
+            <div class="col-md-4">
+                <div class="job-card">
+                    <div class="icon">
+                        <i class="fa fa-briefcase"></i>
+                    </div>
+                    <h5>Volunteers</h5>
+                    <p>We are seeking a compassionate and skilled Staff Nurse to join our team at Adharwad.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="job-card">
+                    <div class="icon">
+                        <i class="fa fa-briefcase"></i>
+                    </div>
+                    <h5>Accountant - 5+ yrs experience</h5>
+                    <p>We are seeking a skilled and experienced Accountant to join our team at Adharwad.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="job-card">
+                    <div class="icon">
+                        <i class="fa fa-briefcase"></i>
+                    </div>
+                    <h5>Chef</h5>
+                    <p>We are seeking a talented and experienced Chef to join our culinary team at Adharwad.</p>
+                </div>
+            </div>
+        </div>
+        <div class="apply-btn-container" style="margin-left: 15px;">
+            <button class="apply-button ms-2" id="applyButton">Apply</button>
+        </div>
+    </div>
+    
+    <!-- Overlay for Category Selection -->
+    <div class="overlay" id="categoryOverlay">
+        <div class="overlay-content">
+            <h4>Select a Category</h4>
+            <button class="category-button" data-category="nurse">Volunteers</button>
+            <button class="category-button" data-category="accountant">Accountant</button>
+            <button class="category-button" data-category="chef">Chef</button>
+        </div>
+    </div>
+    
+    <!-- Overlay for Form -->
+    <div class="overlay" id="formOverlay">
+        <div class="overlay-content">
+            <span class="back-arrow" id="backArrow">&larr; Back</span>
+            <h4>Application Form</h4>
+            <form>
+                <input type="text" class="form-control" placeholder="Full Name" required>
+                <input type="email" class="form-control" placeholder="Email Address" required>
+                <input type="text" class="form-control" placeholder="Phone Number" required>
+                <textarea class="form-control" placeholder="Why are you a good fit?" rows="4" required></textarea>
+                <button type="submit" class="apply-button">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+
+    <footer id="footer" class="footer-1">
+
+        <div class="main-footer widgets-dark typo-light">
+        <div class="container">
+        <div class="row " style="margin-top: 5vh; margin-bottom: -7vh;">
+
+
+
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            
+        <div class="widget subscribe no-box">
+         <img src="./img/adharwadlogo.png" style="height: 5.5vh;">  <br> <span></span>
+        <br>
+         <p>Adharwad Niradhar & 
+        Apang Mahila Utkarsh 
+        Trust </p>
+        </div>
+        </div>
+        
+        <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="widget no-box">
+        <h5 class="widget-title">Quick Links</h5>
+        <br>
+        <ul class="thumbnail-widget">
+        <li>
+        <div class="thumb-content"><a href="#.">About Us</a></div>	
+        </li>
+        <li>
+        <div class="thumb-content"><a href="#.">Blogs</a></div>	
+        </li>
+        <li>
+        <div class="thumb-content"><a href="#.">Events </a></div>	
+        </li>
+        <li>
+        <div class="thumb-content"><a href="#.">Success Stories</a></div>	
+        </li>
+        <li>
+        <div class="thumb-content"><a href="#.">Careers</a></div>	
+        </li>
+        <li>
+        <div class="thumb-content"><a href="#.">SOS</a></div>	
+        </li>
+        
+        </ul>
+        </div>
+        </div>
+        
+        <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="widget no-box">
+        <h5 class="widget-title">Get Started</h5>
+        <br>
+        <p>Get access to your full Training and Marketing Suite.</p>
+        <a class="btn" href="https://www.adharwad.org/donation/" target="_blank">Donate Now</a>
+        </div>
+        </div>
+        
+        <div class="col-xs-12 col-sm-6 col-md-3">
+        
+        <div class="widget no-box">
+        <h5 class="widget-title">Contact Us</h5>
+        <br>
+        
+        <p><a href="https://maps.app.goo.gl/46iX1qpekhqdEFA18?g_st=iw" title="Adharwad">Plot No 20, Sector 1,
+        Kopar Khairane, 
+        Navi Mumbai - 400709,
+        Behind Terna International School</a></p>
+        <ul class="social">
+        <li class=""><a class="ease-all" href="https://www.instagram.com/miss_colourpalette/profilecard/?igsh=NGJod3p5ZjVidjBz "><i class="fa fa-facebook linktree"></i></a></li>
+        <li class=""><a class="ease-all" href="https://www.instagram.com/miss_colourpalette/profilecard/?igsh=NGJod3p5ZjVidjBz "><i class="fa fa-twitter linktree" ></i></a></li>
+        <li class=""><a class="ease-all" href="https://www.instagram.com/pixelperceptions/profilecard/?igsh=azY3bnp2bzZ2Y200"><i class="fa fa-instagram linktree"></i></a></li>
+        <li class=""><a class="ease-all" href="https://www.instagram.com/pixelperceptions/profilecard/?igsh=azY3bnp2bzZ2Y200"><i class="fa fa-google-plus linktree"></i></a></li>
+
+        </ul>
+        </div>
+        </div>
+        
+        </div>
+        </div>
+        </div>
+
+
+
+
+
+
+
+          
+        <div class="footer-copyright">
+        <div class="container">
+        <div class="row">
+        <div class="col-md-12 text-center">
+        <p>Copyright Company Name © 2022. All rights reserved.</p>
+        </div>
+        </div>
+        </div>
+        </div>
+        </footer>
+
+
+
+
+
+
+
+
+    
+
+
+
+
+      
+<script>
+    
+    // Account Overlay Logic
+    document.getElementById('accountTab').addEventListener('click', () => {
+     document.getElementById('accountOverlay').style.display = 'flex';
+ });
+ 
+ document.getElementById('closeAccountOverlay').addEventListener('click', () => {
+     document.getElementById('accountOverlay').style.display = 'none';
+ });
+ 
+ // SOS Overlay Logic
+ document.getElementById('sosTab').addEventListener('click', () => {
+     document.getElementById('sosOverlay').style.display = 'flex';
+ });
+ 
+ document.getElementById('closeSosOverlay').addEventListener('click', () => {
+     document.getElementById('sosOverlay').style.display = 'none';
+ });
+ 
+ // Close overlay when clicking outside the overlay content
+ window.addEventListener('click', (e) => {
+     if (e.target.classList.contains('overlay')) {
+         e.target.style.display = 'none';
+     }
+ });
+ 
+  // Open Donation donover
+  document.getElementById('opendonoverBtn').addEventListener('click', () => {
+     document.getElementById('donationdonover').style.display = 'flex';
+ });
+ 
+ // Close Donation donover
+ document.getElementById('closedonover').addEventListener('click', () => {
+     document.getElementById('donationdonover').style.display = 'none';
+ });
+ 
+ // Close Donation donover on clicking outside the content
+ window.addEventListener('click', (e) => {
+     if (e.target === document.getElementById('donationdonover')) {
+         document.getElementById('donationdonover').style.display = 'none';
+     }
+ });
+ 
+ // Show Tooltip and Copy to Clipboard
+ document.querySelectorAll('.icon-action').forEach(icon => {
+     icon.addEventListener('click', (e) => {
+         const textToCopy = e.target.getAttribute('data-copy');
+         navigator.clipboard.writeText(textToCopy);
+         const tooltip = document.createElement('div');
+         tooltip.classList.add('tooltip-popup');
+         tooltip.innerText = 'Copied';
+         e.target.parentNode.appendChild(tooltip);
+         tooltip.style.display = 'block';
+         setTimeout(() => {
+             tooltip.remove();
+         }, 1500);
+     });
+ });
+ 
+ // Open Share donover
+ document.querySelectorAll('.fa-share').forEach(shareIcon => {
+     shareIcon.addEventListener('click', () => {
+         document.getElementById('sharedonover').style.display = 'flex';
+     });
+ });
+ 
+ // Close Share donover
+ document.getElementById('closeSharedonover').addEventListener('click', () => {
+     document.getElementById('sharedonover').style.display = 'none';
+ });
+ 
+ // Close Share donover on clicking outside the content
+ window.addEventListener('click', (e) => {
+     if (e.target === document.getElementById('sharedonover')) {
+         document.getElementById('sharedonover').style.display = 'none';
+     }
+ });
+ 
+ // Close Share donover when clicking "No"
+ document.getElementById('closeShare').addEventListener('click', () => {
+     document.getElementById('sharedonover').style.display = 'none';
+ });
+
+// Open and close Donate Tab Overlay
+document.getElementById("donateIcon").addEventListener("click", function() {
+        document.getElementById("donateTabOverlay").style.display = "flex";
+    });
+
+    // Close all overlays when clicking outside
+    document.querySelectorAll(".overlay").forEach(function(overlay) {
+        overlay.addEventListener("click", function(e) {
+            if (e.target === overlay) {
+                overlay.style.display = "none";
+            }
+        });
+    });
+
+    // Close overlays using the close button
+    document.querySelectorAll(".close-btn").forEach(function(btn) {
+        btn.addEventListener("click", function() {
+            document.querySelectorAll(".overlay").forEach(function(overlay) {
+                overlay.style.display = "none";
+            });
+        });
+    });
+
+    // Back button for donation overlay
+    document.querySelector(".back-btn").addEventListener("click", function() {
+        document.getElementById("donateTabOverlay").style.display = "flex";
+        document.getElementById("donationOverlay").style.display = "none";
+    });
+
+    // Donation Tab selection
+    document.querySelectorAll(".tab-item").forEach(function(tab) {
+        tab.addEventListener("click", function() {
+            document.getElementById("donateTabOverlay").style.display = "none";
+            document.getElementById("donationOverlay").style.display = "flex";
+        });
+    });
+
+    // Copy donation details to clipboard
+    function copyText() {
+        const text = "Bank Transfer: 123456789\nPayPal: donate@organization.com";
+        navigator.clipboard.writeText(text).then(() => {
+            alert("Donation details copied!");
+        });
+    }
+
+    // Admission Form Overlay Interaction
+    document.getElementById("admissionIcon").addEventListener("click", function() {
+        document.getElementById("admissionOverlay").style.display = "flex";
+    });
+
+    // Contact Overlay Interaction
+    document.getElementById("contactIcon").addEventListener("click", function() {
+        document.getElementById("contactOverlay").style.display = "flex";
+    });
+
+    // Review Overlay Interaction
+    document.getElementById("reviewIcon").addEventListener("click", function() {
+        document.getElementById("reviewOverlay").style.display = "flex";
+    });
+
+
+// JavaScript to toggle "Load More" and "View Less"
+function toggleText() {
+      const text = document.getElementById("moreText");
+      const button = document.getElementById("toggleButton");
+
+      if (text.classList.contains("expanded")) {
+        text.classList.remove("expanded");
+        button.textContent = "Load More";
+      } else {
+        text.classList.add("expanded");
+        button.textContent = "View Less";
+      }
+  }
+// Function to animate numbers
+const animateNumbers = () => {
+        const statNumbers = document.querySelectorAll('.stat-number');
+
+        statNumbers.forEach((stat) => {
+            const target = +stat.getAttribute('data-target');
+            const increment = target / 150; // Adjust increment for 1.5 seconds
+
+            let start = Math.floor(Math.random() * (target / 2)); // Random offset start
+            const updateNumber = () => {
+                start += increment;
+
+                if (start >= target) {
+                    stat.textContent = target;
+                } else {
+                    stat.textContent = Math.floor(start);
+                    setTimeout(updateNumber, 10); // Controls speed
+                }
+            };
+
+            updateNumber();
+        });
+    };
+
+    // Call the function on page load
+    window.onload = animateNumbers;
+
+// opportunities
+const applyButton = document.getElementById('applyButton');
+    const categoryOverlay = document.getElementById('categoryOverlay');
+    const formOverlay = document.getElementById('formOverlay');
+    const backArrow = document.getElementById('backArrow');
+
+    // Show category selection overlay
+    applyButton.addEventListener('click', () => {
+        categoryOverlay.style.display = 'flex';
+    });
+
+    // Show form overlay on category click
+    document.querySelectorAll('.category-button').forEach(button => {
+        button.addEventListener('click', () => {
+            categoryOverlay.style.display = 'none';
+            formOverlay.style.display = 'flex';
+        });
+    });
+
+    // Go back to category selection
+    backArrow.addEventListener('click', () => {
+        formOverlay.style.display = 'none';
+        categoryOverlay.style.display = 'flex';
+    });
+
+    // Close overlay on click outside the content
+    document.querySelectorAll('.overlay').forEach(overlay => {
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                overlay.style.display = 'none';
+            }
+        });
+    });
+
+
+
+
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

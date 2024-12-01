@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aadharwad - Inclusive Care for Elderly</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+         /* Navbar Styling */
+      .navbar {
+      background-color: #262E27;
+      opacity: 90%;
+      z-index: 1000;
+
+    }
+    .navbar-nav .nav-link {
+      color: orange;
+      transition: color 0.3s ease, font-weight 0.3s ease;
+    }
+    .navbar-nav .nav-link:hover {
+      color: white;
+    }
+    .navbar-nav .nav-link.active {
+      font-weight: bold;
+    }
+
+        /* Overlays */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1050;
+        }
+
+        .overlay-content {
+            background: #fff;
+            color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #333;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* SOS Options */
+        .sos-options a {
+            display: block;
+            background: #dc3545;
+            color: #fff;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .sos-options a:hover {
+            background: #b52b3a;
+        }
+
+        /* Custom Styles */
+        .hero-section {
+            background-image: url('your-hero-image.jpg'); /* Replace with actual image */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+        }
+
+        .stats-box {
+            text-align: center;
+            margin: 20px 0;
+            background: #F3F3F3;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+
+        /* pillars */
+        .pillars-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 5rem;
+    max-width: 80rem; /* Reduced width */
+    width: 100%;
+    padding: 0 1rem; /* Added padding for better responsiveness */
+  }
+
+  .pillars-heading {
+    background-color: rgb(213, 84, 79);
+    color: rgb(255, 255, 255);
+    padding: 1rem 1.2rem;
+    font: 500 2rem Inter, sans-serif; /* Retained prominent size */
+    text-align: center;
+  }
+
+  .pillars-grid {
+    margin-top: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pillars-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Align items to the center */
+    gap: 1.25rem;
+    width: 100%;
+  }
+
+  .pillar-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 22%; /* Reduced size of columns */
+  }
+
+  .pillar-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(213, 84, 79);
+    text-align: center;
+    font: 700 1rem/1.4rem Raleway, sans-serif; /* Reduced font size */
+  }
+
+  .pillar-image {
+    width: 70%; /* Reduced image size */
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    margin: 0 auto;
+  }
+
+  .pillar-title,
+  .pillar-title-women,
+  .pillar-title-care,
+  .pillar-title-senior {
+    margin-top: 1rem; /* Reduced margin for compactness */
+    font-size: 0.9rem; /* Adjusted font size */
+  }
+
+  @media (max-width: 991px) {
+    .pillars-container {
+      margin-top: 2.5rem;
+      max-width: 100%;
+    }
+
+    .pillars-grid {
+      max-width: 100%;
+    }
+
+    .pillars-row {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .pillar-column {
+      width: 80%; /* Full width on smaller screens */
+    }
+
+    .pillar-content {
+      margin-top: 1.5rem;
+    }
+
+    .pillar-image {
+      width: 50%; /* Smaller images for mobile */
+    }
+  }
+
+  /*change*/
+  .donation-container {
+    align-items: start;
+    background: linear-gradient(135deg, #d5544f 0%, #f18d51 100%);
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    overflow: hidden;
+    justify-content: center;
+    padding: 58px 80px;
+  }
+
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+  }
+
+  .text-content {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    justify-content: start;
+  }
+
+  .heading {
+    font: 700 39px/1 'Roboto Flex', sans-serif;
+  }
+
+  .description {
+    margin-top: 16px;
+    font: 400 21px/28px Roboto, sans-serif;
+  }
+
+  .donate-btn {
+    border-radius: 9px;
+    background-color: #fff;
+    margin-top: 32px;
+    min-height: 55px;
+    width: 147px;
+    color: #262e27;
+    padding: 18px 40px;
+    font: 700 16px Roboto, sans-serif;
+    cursor: pointer;
+    border: none;
+  }
+
+  @media (max-width: 991px) {
+    .donation-container {
+      padding: 0 20px;
+    }
+
+    .content-wrapper,
+    .text-content,
+    .heading,
+    .description {
+      max-width: 100%;
+    }
+
+    .donate-btn {
+      padding: 0 20px;
+      white-space: initial;
+    }
+  }
+
+  /* Media Highlights*/
+  .media-highlights-section {
+  align-self: center;
+  display: flex;
+  margin: 96px auto 0;
+  width: 100%;
+  max-width: 1218px;
+  flex-direction: column;
+  align-items: start;
+}
+
+.highlight-header {
+  background: #D5544F;
+  color: #FFF;
+  padding: 16px 45px;
+  font: 500 28px Inter, sans-serif;
+}
+
+.content-wrapper {
+  z-index: 10;
+  margin: -23px 0 0 14px;
+}
+
+.content-grid {
+  gap: 20px;
+  display: flex;
+}
+
+.text-column {
+  display: flex;
+  flex-direction: column;
+  line-height: normal;
+  width: 50%;
+}
+
+.article-content {
+  display: flex;
+  margin-top: 77px;
+  flex-direction: column;
+  font-family: Roboto, sans-serif;
+  color: #000;
+}
+
+.article-title {
+  font: 700 24px/32px Roboto, sans-serif;
+  text-align: center;
+}
+
+.article-description {
+  font: 400 21px/28px Roboto, sans-serif;
+  margin: 20px 0 0 11px;
+}
+
+.image-column {
+  display: flex;
+  flex-direction: column;
+  line-height: normal;
+  width: 50%;
+  margin-left: 20px;
+}
+
+.image-wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 309px;
+  flex-grow: 1;
+  justify-content: center;
+  padding: 2px 0;
+}
+
+.main-image {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.logo-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 281px 80px 13px;
+}
+
+.logo {
+  aspect-ratio: 4.67;
+  object-fit: contain;
+  width: 56px;
+}
+
+@media (max-width: 991px) {
+  .media-highlights-section {
+    max-width: 100%;
+    margin-top: 40px;
+  }
+
+  .highlight-header {
+    padding: 0 20px;
+  }
+
+  .content-wrapper {
+    max-width: 100%;
+  }
+
+  .content-grid {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .text-column {
+    width: 100%;
+  }
+
+  .article-content {
+    max-width: 100%;
+    margin-top: 40px;
+  }
+
+  .article-title {
+    max-width: 100%;
+    margin-right: 10px;
+  }
+
+  .article-description {
+    max-width: 100%;
+  }
+
+  .image-column {
+    width: 100%;
+  }
+
+  .image-wrapper {
+    max-width: 100%;
+    margin-top: 40px;
+  }
+
+  .logo-container {
+    max-width: 100%;
+    padding: 100px 20px 0;
+  }
+}
+
+        .review-card {
+            background: #F9F9F9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .footer {
+            background-color: #4D2A30;
+            color: white;
+            padding: 40px 0;
+        }
+
+        .footer .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+          <!-- Logo -->
+          <a class="navbar-brand" href="#">
+              <img src="/./img/adharwadlogo.png" alt="Logo" style="height: 40px;">
+          </a>
+    
+          <!-- Toggle Button -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                  aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+    
+          <!-- Navbar Links -->
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="/index.html">Home</a>
+              </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/adharwad_about.html " >About Us</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Services
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                          <li><a class="dropdown-item" href="/adharwad_care_OAH_seniorcitizens.html">Old Age Home for Senior Citizens</a></li>
+                          <li><a class="dropdown-item" href="/adharwad_care_bedridden.html">Bedridden & Critical Care Centre</a></li>
+                          <li><a class="dropdown-item" href="/adharwad_care_Assitedliving.html">Assisted Living Center</a></li>
+                          <li><a class="dropdown-item" href="/adharwad_care_adultdaycare.html">Adult Day Care Center</a></li>
+                          <li><a class="dropdown-item" href="/adharwad_care_empowring.html">Empowering Destitute Women</a></li>
+                          <li><a class="dropdown-item" href="/adharwad_care_education.html">Educational & Medical Support for Children</a></li>
+                          <li><a class="dropdown-item" href="/adharwad_care_physicallychallenged.html">NGO for Physically Challenged in Mumbai</a></li>
+                          <li><a class="dropdown-item" href="/adharwad_care_OAH_seniorcitizens.html">Old Age Home for Elderly People in Mumbai</a></li>
+                      </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="mediaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Media
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="mediaDropdown">
+                          <li><a class="dropdown-item" href="/adharwad_blog.html">Blog</a></li>
+                          <li><a class="dropdown-item" href="/adharwad_events.html">Gallery</a></li>
+                      </ul>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#" id="sosTab">SOS</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link btn btn-warning text-white" href="#donate">Donate</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#" id="accountTab">
+                          <i class="fa fa-user"></i>
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+    </nav>
+
+<!-- Account Overlay -->
+<div class="overlay" id="accountOverlay">
+    <span class="close-btn" id="closeAccountOverlay">&times;</span>
+    <div class="overlay-content">
+        <h4 class="text-center">Account</h4>
+        <form>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Enter your password">
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+            <p class="text-center mt-3">New User? <a href="#" class="text-primary">Sign Up</a></p>
+        </form>
+    </div>
+</div>
+
+<!-- SOS Overlay -->
+<div class="overlay" id="sosOverlay">
+    <span class="close-btn" id="closeSosOverlay">&times;</span>
+    <div class="overlay-content">
+        <h4 class="text-center mb-4">Emergency Services</h4>
+        <div class="sos-options">
+            <a href="#"><i class="fa fa-ambulance"></i> Urgent Medical Facility</a>
+            <a href="#"><i class="fa fa-car"></i> Emergency Transport</a>
+            <a href="#"><i class="fa fa-heart"></i> Urgent Donations</a>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Account Overlay Logic
+    document.getElementById('accountTab').addEventListener('click', () => {
+        document.getElementById('accountOverlay').style.display = 'flex';
+    });
+
+    document.getElementById('closeAccountOverlay').addEventListener('click', () => {
+        document.getElementById('accountOverlay').style.display = 'none';
+    });
+
+    // SOS Overlay Logic
+    document.getElementById('sosTab').addEventListener('click', () => {
+        document.getElementById('sosOverlay').style.display = 'flex';
+    });
+
+    document.getElementById('closeSosOverlay').addEventListener('click', () => {
+        document.getElementById('sosOverlay').style.display = 'none';
+    });
+
+    // Close overlay when clicking outside the overlay content
+    window.addEventListener('click', (e) => {
+        if (e.target.classList.contains('overlay')) {
+            e.target.style.display = 'none';
+        }
+    });
+</script>
+
+   <!-- Hero Section -->
+   <section class="hero bg-light text-white py-5" style="background-image: url('aboutusbg.jpg'); background-size: cover; background-position: center; height: 40vh;">
+    <div class="container">
+        <h1 class="display-4">About Us</h1>
+    </div>
+</section>
+
+
+    <!-- Pillars Section -->
+    <section class="pillars-container">
+  <h2 class="pillars-heading">Pillars of Aadharwad</h2>
+  <div class="pillars-grid">
+    <div class="pillars-row">
+      <article class="pillar-column">
+        <div class="pillar-content">
+          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/e6c60d7b05d444ed5266ac5e211755bc17c2700738c20507e952ff966f29702b?placeholderIfAbsent=true&apiKey=53ad26a35ac64481a11f945909f90e32" alt="Education initiative illustration" class="pillar-image" />
+          <h2 class="pillar-title">Change a life through education</h2>
+        </div>
+      </article>
+      <article class="pillar-column">
+        <div class="pillar-content">
+          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/fcdd926d27f3b9b81b7b7d61c3c7d3668ad8c46882da17f56e7e0dafa8190bc8?placeholderIfAbsent=true&apiKey=53ad26a35ac64481a11f945909f90e32" alt="Women rehabilitation program illustration" class="pillar-image" />
+          <h3 class="pillar-title-women">Rehabilitation of destitute women</h3>
+        </div>
+      </article>
+      <article class="pillar-column">
+        <div class="pillar-content">
+          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/56d2430b31aacb2b23181d65dc719628f5a9b07a213d1ca9a2bcdd2d79f47e5f?placeholderIfAbsent=true&apiKey=53ad26a35ac64481a11f945909f90e32" alt="Critical care services illustration" class="pillar-image" />
+          <h3 class="pillar-title-care">Bedridden and Critical Care</h3>
+        </div>
+      </article>
+      <article class="pillar-column">
+        <div class="pillar-content">
+          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/97b28db3567fde2adbb1964c013e549782a9a293cd1ea50efd8386a32a1d9eaa?placeholderIfAbsent=true&apiKey=53ad26a35ac64481a11f945909f90e32" alt="Senior citizens home illustration" class="pillar-image" />
+          <h3 class="pillar-title-senior">Home for retired senior citizens</h3>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+    <!-- Stats Section -->
+    <section class="py-5 bg-light">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-md-3 stats-box">
+                    <h3>12450</h3>
+                    <p>Elderly Benefited</p>
+                </div>
+                <div class="col-md-3 stats-box">
+                    <h3>16</h3>
+                    <p>Years of Experience</p>
+                </div>
+                <div class="col-md-3 stats-box">
+                    <h3>1230</h3>
+                    <p>Volunteers Enrolled</p>
+                </div>
+                <div class="col-md-3 stats-box">
+                    <h3>1640</h3>
+                    <p>Women Empowered</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Change -->
+    <section class="donation-container">
+        <div class="content-wrapper">
+          <div class="text-content">
+            <h3 class="heading">Change Their World. Change Yours. This changes everything.</h3>
+            <p class="description">Everyday, countless individuals face harsh realities of poverty, hunger and diseases. Your generous donation can be a lifeline, providing support. You're not investing in a better future, but also making a difference. Donate today.</p>
+          </div>
+          <button class="donate-btn" tabindex="0" aria-label="Make a donation">Donate</button>
+        </div>
+      </section>
+
+    <!-- Media Highlights -->
+
+    <section class="media-highlights-section">
+        <h2 class="highlight-header">Media Highlights</h2>
+        <div class="content-wrapper">
+          <div class="content-grid">
+            <article class="text-column">
+              <div class="article-content">
+                <h3 class="article-title">MID-DAY Newspaper Highlights Adharwad's Old Age Home and approach to resident's wellbeing</h3>
+                <p class="article-description">Residents at Adharwad enjoy a comfortable and secure lifestyle, surrounded by compassionate caregivers. The facility's modern infrastructure and lush green surroundings create a peaceful ambiance. Adharwad strives to enhance the quality of life for its residents, fostering a sense of belonging and purpose....</p>
+              </div>
+            </article>
+            <div class="image-column">
+              <div class="image-wrapper">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/4c04734a79e42ae0d7a98960d69e3f6497eca802e66eac4721d2980694c3044c?placeholderIfAbsent=true&apiKey=53ad26a35ac64481a11f945909f90e32" alt="Media coverage of Adharwad Old Age Home" class="main-image" />
+                <div class="logo-container">
+                  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/08a0e1e81a3dc5b5856da22d1bdc92f0b908150e305ef31619ef55ccee23bdae?placeholderIfAbsent=true&apiKey=53ad26a35ac64481a11f945909f90e32" alt="Mid-Day newspaper logo" class="logo" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+    <!-- Reviews Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center">Reviews</h2>
+            <div class="row mt-4">
+                <div class="col-md-6 offset-md-3 review-card">
+                    <p>"My father spent his golden years at Aadharwad, and we couldn't have been more pleased. Thank you, Aadharwad, for providing such a loving and supportive environment."</p>
+                    <h6>- Sandeep Prajapati</h6>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <img src="logo-footer.png" alt="Aadharwad Logo" height="50">
+            <p class="mt-3">Aadharwad Niradhar & Apang Mahila Utkarsh Trust</p>
+            <div class="social-icons mt-3">
+                <a href="#"><i class="bi bi-facebook"></i></a>
+                <a href="#"><i class="bi bi-twitter"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-youtube"></i></a>
+            </div>
+            <p class="mt-3">Copyright © 2022 Aadharwad. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

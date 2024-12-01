@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Icon Box</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        .body-shortcuts {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f9f9f9;
+        }
+
+        .icon-box {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4a261;
+            padding: 30px;
+            border-radius: 15px;
+            width: 70%;
+            max-width: 600px;
+            min-width: 300px;
+        }
+
+        .icon-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background-color: #e76f51;
+            color: #f4e1d2;
+            margin: 10px;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: capitalize;
+            transition: transform 0.3s, opacity 0.3s, color 0.3s;
+            cursor: pointer;
+        }
+
+        .icon-item i {
+            transition: opacity 0.3s;
+        }
+
+        .icon-item span {
+            position: absolute;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 14px;
+            font-weight: 400;
+            text-align: center;
+            color: #f4e1d2;
+        }
+
+        /* Hover effect */
+        .icon-item:hover i {
+            opacity: 0;
+        }
+
+        .icon-item:hover span {
+            opacity: 1;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            .icon-box {
+                width: 90%;
+            }
+
+            .icon-item {
+                width: 60px;
+                height: 60px;
+                font-size: 18px;
+            }
+
+            .icon-item span {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="icon-box body-shortcuts">
+    <div class="icon-item">
+        <i class="fa fa-heart"></i>
+        <span>Donate</span>
+    </div>
+    <div class="icon-item">
+        <i class="fa fa-id-card"></i>
+        <span>Admission</span>
+    </div>
+    <div class="icon-item">
+        <i class="fa fa-envelope"></i>
+        <span>Contact</span>
+    </div>
+    <div class="icon-item">
+        <i class="fa fa-comments"></i>
+        <span>Review</span>
+    </div>
+</div>
+
+</body>
+</html>

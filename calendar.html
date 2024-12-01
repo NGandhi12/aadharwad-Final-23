@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Section with Overlay</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2rem;
+        }
+
+        h2 {
+            color: #cc5b4d;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .events-container {
+            display: flex;
+            gap: 2%;
+            justify-content: flex-start;
+        }
+
+        .event-box {
+            background-color: #cc5b4d;
+            color: white;
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 48%; /* Responsive width */
+        }
+
+        .event-box .date {
+            text-align: center;
+        }
+
+        .event-box .date .day {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .event-box .date .month {
+            font-size: 1rem;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        .event-box .details {
+            flex-grow: 1;
+            padding-left: 10px;
+        }
+
+        .event-box .details .event-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .event-box .details .event-subtitle {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05rem;
+            margin: 5px 0;
+        }
+
+        .event-box .arrow {
+            background-color: white;
+            color: #cc5b4d;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .event-box .arrow:hover {
+            background-color: #bb4a3c;
+            color: white;
+        }
+
+        /* Overlay Styling */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .overlay.active {
+            display: flex;
+        }
+
+        .overlay-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .overlay-content p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .overlay-content button {
+            background-color: #cc5b4d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .overlay-content button:hover {
+            background-color: #bb4a3c;
+        }
+    </style>
+</head>
+<body>
+    <h2>Our Events</h2>
+    <div class="events-container">
+        <!-- Event 1 -->
+        <div class="event-box">
+            <div class="date">
+                <p class="day">23</p>
+                <p class="month">Sep</p>
+            </div>
+            <div class="details">
+                <p class="event-subtitle">Next Events</p>
+                <p class="event-title">Plant new trees</p>
+            </div>
+            <div class="arrow" onclick="openOverlay()">→</div>
+        </div>
+        <!-- Event 2 -->
+        <div class="event-box">
+            <div class="date">
+                <p class="day">25</p>
+                <p class="month">Sep</p>
+            </div>
+            <div class="details">
+                <p class="event-subtitle">Next Events</p>
+                <p class="event-title">Weekly cleaning program</p>
+            </div>
+            <div class="arrow" onclick="openOverlay()">→</div>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="eventOverlay" onclick="closeOverlay(event)">
+        <div class="overlay-content">
+            <p>Allow the website to open the calendar?</p>
+            <button onclick="closeOverlay()">Yes</button>
+            <button onclick="closeOverlay()">No</button>
+        </div>
+    </div>
+
+    <script>
+        function openOverlay() {
+            document.getElementById('eventOverlay').classList.add('active');
+        }
+
+        function closeOverlay(event) {
+            if (event && event.target !== event.currentTarget) return; // Prevent closing when clicking inside content
+            document.getElementById('eventOverlay').classList.remove('active');
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
