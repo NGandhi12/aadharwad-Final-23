@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aadharwad</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+
+
+
+.stats-container {
+            display: flex;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .stat-box {
+            flex: 1; /* Ensures equal size boxes */
+            text-align: center;
+            color: white;
+            padding: 30px 0; /* Increased padding for better spacing */
+            position: relative;
+        }
+
+        /* Color Styling for Each Box */
+        .stat-box:nth-child(1) {
+            background: #F18D51; /* Orange for Elderly Benefited */
+        }
+
+        .stat-box:nth-child(2) {
+            background: #D5544F; /* Darker Red for Years of Experience */
+        }
+
+        .stat-box:nth-child(3) {
+            background: #F18D51; /* Orange for Volunteers Enrolled */
+        }
+
+        .stat-box:nth-child(4) {
+            background: #D5544F; /* Darker Red for Women Empowered */
+        }
+
+        .stat-box i {
+            font-size: 40px; /* Increased icon size */
+            margin-bottom: 15px;
+            display: block;
+            animation: icon-bounce 0.5s ease-in-out;
+        }
+
+        .stat-number {
+            font-size: 40px; /* Increased number size */
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .stat-title {
+            font-size: 18px; /* Increased title size */
+        }
+
+        /* Ensure Edge-to-Edge Layout */
+        .stats-container > .stat-box {
+            margin: 0; /* Removes any gaps between boxes */
+            padding: 30px;
+        }
+
+        /* Animation for Bouncing Icons */
+        @keyframes icon-bounce {
+            0% {
+                transform: translateY(-10px);
+            }
+            50% {
+                transform: translateY(5px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .stats-container {
+                flex-direction: column; /* Stacks boxes vertically */
+            }
+
+            .stat-box {
+                padding: 20px;
+            }
+        }
+
+
+
+
+
+
+      /* Navbar Styling */
+      .navbar {
+      background-color: #262E27;
+      opacity: 90%;
+      position: relative;
+      z-index: 1000;
+    }
+    .navbar-nav .nav-link {
+      color: orange;
+      transition: color 0.3s ease, font-weight 0.3s ease;
+    }
+    .navbar-nav .nav-link:hover {
+      color: white;
+    }
+    .navbar-nav .nav-link.active {
+      font-weight: bold;
+    }
+
+    /* Overlays */
+    .overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100; /* Ensure it's above other elements */
+}
+
+.overlay-content {
+  background: #fff;
+  color: #333;
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+}
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #333;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+    /* SOS Options */
+    .sos-options a {
+      display: block;
+      background: #dc3545;
+      color: #fff;
+      padding: 10px;
+      margin: 10px 0;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .sos-options a:hover {
+      background: #b52b3a;
+    }
+
+    /* Hero Section */
+    .hero-section {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  background: url('./home.png') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1; /* Lower z-index */
+}
+
+    .hero-content {
+      position: relative;
+    text-align: left;
+    color: white;
+    z-index: 1;
+    width: 90%; /* Ensure responsiveness */
+    max-width: 800px;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+    }
+
+    .hero-content p {
+      font-size: 1rem;
+    }
+
+    .highlight-cards i {
+      font-size: 2rem;
+      color: white;
+    }
+    .highlight-cards {
+      background-color: #DA6F6A;
+      padding: 1.5rem;
+      border-radius: 10px;
+      text-align: center;
+      color: white;
+    }
+
+    .hero-content .row h5 {
+  font-size: 0.85rem; /* Reduced size for smaller text */
+  margin: 0;
+}
+
+/* Adjust icon items */
+.icon-item {
+    margin: 10px;
+    width: 70px;
+    height: 70px;
+    font-size: 20px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Adjust icon item hover */
+.icon-item:hover {
+    transform: scale(1.1);
+    background-color: rgba(231, 111, 81, 0.8);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .icon-box {
+        top: 60%; /* Adjust for smaller screens */
+    }
+    .icon-item {
+        width: 60px;
+        height: 60px;
+        font-size: 16px;
+    }
+}
+
+/* Shortcuts Overlay */
+    /* Shortcuts Overlay */
+    .icon-box {
+        position: absolute; /* Position the shortcut between sections */
+        top: 75vh; /* Place it below the hero section and above the pillars section */
+        left: 50%; /* Center horizontally */
+        transform: translateX(-50%); /* Align center horizontally */
+        z-index: 100 ; /* Ensure it's above other elements */
+        background-color: #f4a261; /* Solid background color (no transparency) */
+        border-radius: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: auto; /* Dynamic width based on content */
+        max-width: 600px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Icon Items */
+    .icon-item {
+        margin: 10px; /* Spacing between icons */
+        width: 70px; /* Icon size */
+        height: 70px;
+        font-size: 20px; /* Font size for icons */
+        transition: transform 0.3s ease, background-color 0.3s ease;
+        background-color: #e76f51;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #f4e1d2;
+        text-transform: capitalize;
+        cursor: pointer;
+    }
+
+    /* Hover Effects */
+    .icon-item:hover {
+        transform: scale(1.1);
+        background-color: #d35441; /* Slightly darker color on hover */
+    }
+
+    /* Icon Labels */
+    .icon-item span {
+        position: absolute;
+        opacity: 0;
+        font-size: 12px;
+        text-align: center;
+        color: #f4e1d2;
+        transition: opacity 0.3s;
+    }
+
+    .icon-item:hover span {
+        opacity: 1;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+        .icon-box {
+            width: 90%; /* Adjust for smaller screens */
+            top: 70vh; /* Adjust placement for smaller screens */
+        }
+        .icon-item {
+            width: 70px; /* Maintain size on smaller screens */
+            height: 70px;
+            font-size: 20px; /* Maintain font size on smaller screens */
+        }
+        .icon-item span {
+            font-size: 10px;
+        }
+    }
+
+    /* Pillars*/
+    .pillars-container {
+    display: fixed;
+    align-items: left;
+    justify-content: left;
+    flex-direction: column;
+    margin-top: 5rem;
+    max-width: 80rem; /* Reduced width */
+    width: 100%;
+    padding: 0 1rem; /* Added padding for better responsiveness */
+    margin-left: 361px;
+  }
+
+  .pillars-heading {
+  background-color: rgb(213, 84, 79);
+  color: rgb(255, 255, 255);
+  padding: 0.5rem 1rem; /* Reduced padding */
+  font: 50 1.5rem Inter, sans-serif; /* Retained prominent font size */
+  text-align: left;
+  display: inline-block; /* Adjust the box to fit only the text */
+  margin: 0 auto; /* Optional: Center the text box */
+  margin-left: 495px;
+}
+
+
+  .pillars-grid {
+    margin-top: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pillars-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Align items to the center */
+    gap: 1.25rem;
+    width: 100%;
+  }
+
+  .pillar-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 22%; /* Reduced size of columns */
+  }
+
+  .pillar-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(213, 84, 79);
+    text-align: center;
+    font: 700 1rem/1.4rem Raleway, sans-serif; /* Reduced font size */
+  }
+
+  .pillar-image {
+    width: 70%; /* Reduced image size */
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    margin: 0 auto;
+  }
+
+  .pillar-title,
+  .pillar-title-women,
+  .pillar-title-care,
+  .pillar-title-senior {
+    margin-top: 1rem; /* Reduced margin for compactness */
+    font-size: 0.9rem; /* Adjusted font size */
+  }
+
+  @media (max-width: 991px) {
+    .pillars-container {
+      margin-top: 2rem;
+      max-width: 100%;
+    }
+
+    .pillars-grid {
+      width: 100vw;
+      
+    }
+
+    .pillars-row {
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .pillar-column {
+      width: 80%; /* Full width on smaller screens */
+    }
+
+    .pillar-content {
+      margin-top: 1.5rem;
+    }
+
+    .pillar-image {
+      width: 50%; /* Smaller images for mobile */
+    }
+  }
+
+  /* donation */
+  .donation-container {
+    align-items: start;
+    background: linear-gradient(135deg, #d5544f 0%, #f18d51 100%);
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    overflow: hidden;
+    justify-content: center;
+    padding: 58px 80px;
+  }
+
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+  }
+
+  .text-content {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    justify-content: start;
+  }
+
+  .heading {
+    font: 400 35px 'Roboto Flex', sans-serif;
+  }
+
+  .description {
+    margin-top: 16px;
+    font: 400 17px/28px Roboto, sans-serif;
+  }
+
+  .donate-btn {
+    border-radius: 9px;
+    background-color: #fff;
+    margin-top: 32px;
+    min-height: 55px;
+    width: 147px;
+    color: #262e27;
+    padding: 18px 40px;
+    font: 700 16px Roboto, sans-serif;
+    cursor: pointer;
+    border: none;
+  }
+
+  @media (max-width: 991px) {
+    .donation-container {
+      padding: 0 20px;
+    }
+
+    .content-wrapper,
+    .text-content,
+    .heading,
+    .description {
+      max-width: 100%;
+    }
+
+    .donate-btn {
+      padding: 0 20px;
+      white-space: initial;
+    }
+  }
+
+  /* Carousel */
+  .highlight-header-media {
+      background: #D5544F;
+      color: #FFF;
+      padding: 16px 45px;
+      font: 500 28px Inter, sans-serif;
+      text-align: center;
+    }
+
+    .carousel-inner-media {
+      max-width: 1218px;
+      margin: auto;
+    }
+
+    .carousel-item-media {
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+      gap: 20px;
+    }
+
+    .text-column {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      padding: 20px;
+      justify-content: center;
+    }
+
+    .article-content {
+      display: flex;
+      flex-direction: column;
+      font-family: Roboto, sans-serif;
+      color: #000;
+    }
+
+    .article-title {
+      font: 700 24px/32px Roboto, sans-serif;
+    }
+
+    .article-description {
+      font: 400 18px/28px Roboto, sans-serif;
+      margin-top: 10px;
+    }
+
+    .media-column {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .image-container {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .main-image {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .logo-wrapper {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .logo {
+      aspect-ratio: 4.67;
+      object-fit: contain;
+      width: 56px;
+    }
+
+    @media (max-width: 991px) {
+      .carousel-item {
+        flex-direction: column;
+      }
+
+      .text-column, .media-column {
+        width: 100%;
+      }
+
+      .article-title {
+        font-size: 20px;
+      }
+
+      .article-description {
+        font-size: 16px;
+      }
+    }
+
+/* Review */
+.review-section {
+      background-color: #D5544F; /* Matching the red color scheme */
+      color: white;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .review-section h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 40px;
+    }
+
+    .review-quote {
+      font-style: italic;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin: 20px auto;
+      max-width: 800px;
+      position: relative;
+    }
+
+    .review-quote::before,
+    .review-quote::after {
+      content: '“';
+      font-size: 2rem;
+      color: white;
+    }
+
+    .review-quote::after {
+      content: '”';
+    }
+
+    .review-author {
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin-top: 20px;
+    }
+
+    .review-author-subtitle {
+      font-size: 0.9rem;
+      color: #f8d7d6;
+    }
+
+    .carousel-indicators button {
+      background-color: white;
+    }
+
+    .review-image {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 10px auto;
+    }
+    .donover {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1050;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .donover-content {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 500px;
+            width: 90%;
+            z-index: 2000;
+            position: relative;
+        }
+
+        .close-donover {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: black;
+            z-index: 2000;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            z-index: 2000;
+        }
+
+        .donation-method {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #f8f9fa;
+            z-index: 2000;
+        }
+
+        .donation-method:hover {
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .donation-method .method-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .icon-action {
+            cursor: pointer;
+            margin-left: 10px;
+            color: gray;
+        }
+
+        .icon-action:hover {
+            color: black;
+        }
+
+        /* Tooltip styling */
+        .tooltip-popup {
+            position: absolute;
+            background-color: #000;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            top: -30px;
+            right: 0;
+            display: none;
+            z-index: 2000;
+        }
+
+        /* Share donover */
+        .share-donover {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1060;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .share-content {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+            z-index: 2000;
+        }
+
+                  /* Main Footer */
+footer .main-footer{	padding: 20px 0;	background: #252525;}
+footer ul{	padding-left: 0;	list-style: none;}
+
+/* Copy Right Footer */
+.footer-copyright {	background: #222;	padding: 5px 0;}
+.footer-copyright .logo {    display: inherit;}
+.footer-copyright nav {    float: right;    margin-top: 5px;}
+.footer-copyright nav ul {	list-style: none;	margin: 0;	padding: 0;}
+.footer-copyright nav ul li {	border-left: 1px solid #505050;	display: inline-block;	line-height: 12px;	margin: 0;	padding: 0 8px;}
+.footer-copyright nav ul li a{	color: #969696;}
+.footer-copyright nav ul li:first-child {	border: medium none;	padding-left: 0;}
+.footer-copyright p {	color: #fff;	margin: 2px 0 0;}
+
+/* Footer Top */
+.footer-top{	background: #252525;	padding-bottom: 30px;	margin-bottom: 30px;	border-bottom: 3px solid #222;}
+
+/* Footer transparent */
+footer.transparent .footer-top, footer.transparent .main-footer{	background: transparent;}
+footer.transparent .footer-copyright{	background: none repeat scroll 0 0 rgba(0, 0, 0, 0.3) ;}
+
+/* Footer light */
+footer.light .footer-top{	background: #f9f9f9;}
+footer.light .main-footer{	background: #f9f9f9;}
+footer.light .footer-copyright{	background: none repeat scroll 0 0 rgba(255, 255, 255, 0.3) ;}
+
+/* Footer 4 */
+.footer- .logo {    display: inline-block;}
+
+/*==================== 
+	Widgets 
+====================== */
+.widget{	padding: 20px;	margin-bottom: 40px;}
+.widget.widget-last{	margin-bottom: 0px;}
+.widget.no-box{	padding: 0;	background-color: transparent;	margin-bottom: 40px;
+	box-shadow: none; -webkit-box-shadow: none; -moz-box-shadow: none; -ms-box-shadow: none; -o-box-shadow: none;}
+.widget.subscribe p{	margin-bottom: 18px;}
+.widget li a{	color: #F18D51;}
+.widget li a:hover{	color: #4b92dc;}
+.widget-title {margin-bottom: 20px;}
+.widget-title span {background: #839FAD none repeat scroll 0 0;display: block; height: 1px;margin-top: 25px;position: relative;width: 20%;}
+.widget-title span::after {background: inherit;content: "";height: inherit;    position: absolute;top: -4px;width: 50%;}
+.widget-title.text-center span,.widget-title.text-center span::after {margin-left: auto;margin-right:auto;left: 0;right: 0;}
+.widget .badge{	float: right;	background: #7f7f7f;}
+
+.typo-light h1, 
+.typo-light h2, 
+.typo-light h3, 
+.typo-light h4, 
+.typo-light h5, 
+.typo-light h6,
+.typo-light p,
+.typo-light div,
+.typo-light span,
+.typo-light small{	color: #fff;}
+
+ul.social-footer2 {	margin: 0;padding: 0;	width: auto;}
+ul.social-footer2 li {display: inline-block;padding: 0;}
+ul.social-footer2 li a:hover {background-color:#ff8d1e;}
+ul.social-footer2 li a {display: block;	height:30px;width: 30px;text-align: center;}
+.btn{background-color: #ff8d1e; color:#fff;}
+.btn:hover, .btn:focus, .btn.active {background: #4b92dc;color: #fff;
+-webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+-moz-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+-ms-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+-o-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+-webkit-transition: all 250ms ease-in-out 0s;
+-moz-transition: all 250ms ease-in-out 0s;
+-ms-transition: all 250ms ease-in-out 0s;
+-o-transition: all 250ms ease-in-out 0s;
+transition: all 250ms ease-in-out 0s;
+
+}
+
+
+
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+.ease-all{
+	-webkit-transition: all 400ms ease-in-out;
+	-moz-transition: all 400ms ease-in-out;
+	-o-transition: all 400ms ease-in-out;
+	-ms-transition: all 400ms ease-in-out;
+	transition: all 400ms ease-in-out;
+}
+
+/* Social Icons */
+.social {
+  height: 10rem;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px; /* Adds space between icons */
+}
+
+.social li a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 20px;
+  box-shadow: inset 0 0 0 40px #222;
+  color: #ff8d1e;
+  font-size: 18px;
+}
+
+.social li a:hover {
+  box-shadow: inset 0 0 0 3px #ff8d1e;
+  color: #ffffff;
+}
+        
+  </style>
+</head>
+<body>
+
+      <!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+      <!-- Logo -->
+      <a class="navbar-brand" href="#">
+          <img src="./img/./adharwadlogo.png" alt="Logo" style="height: 40px;">
+      </a>
+
+      <!-- Toggle Button -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Navbar Links -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/index.html" style="color: white;">Home</a>
+          </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="./adharwad_about.html">About Us</a>
+              </li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Services
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                      <li><a class="dropdown-item" href="/adharwad_care_OAH_seniorcitizens.html">Old Age Home for Senior Citizens</a></li>
+                      <li><a class="dropdown-item" href="/adharwad_care_bedridden.html">Bedridden & Critical Care Centre</a></li>
+                      <li><a class="dropdown-item" href="/adharwad_care_Assitedliving.html">Assisted Living Center</a></li>
+                      <li><a class="dropdown-item" href="/adharwad_care_adultdaycare.html">Adult Day Care Center</a></li>
+                      <li><a class="dropdown-item" href="/adharwad_care_empowring.html">Empowering Destitute Women</a></li>
+                      <li><a class="dropdown-item" href="/adharwad_care_education.html">Educational & Medical Support for Children</a></li>
+                      <li><a class="dropdown-item" href="/adharwad_care_physicallychallenged.html">NGO for Physically Challenged in Mumbai</a></li>
+                      <li><a class="dropdown-item" href="/adharwad_care_OAH_seniorcitizens.html">Old Age Home for Elderly People in Mumbai</a></li>
+                  </ul>
+              </li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="mediaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Media
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="mediaDropdown">
+                      <li><a class="dropdown-item" href="/adharwad_blog.html">Blog</a></li>
+                      <li><a class="dropdown-item" href="/adharwad_events.html">Gallery</a></li>
+                  </ul>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#" id="sosTab">SOS</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link btn btn-warning text-white" href="#"id="opendonoverBtn">Donate</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#" id="accountTab">
+                      <i class="fa fa-user"></i>
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </div>
+</nav>
+
+<!-- donate -->
+ <!-- Donation donover -->
+<div class="donover" id="donationdonover">
+  <div class="donover-content">
+      <span class="close-donover" id="closedonover">&times;</span>
+      <div class="section-title">Donate for the Organization!</div>
+
+      <div class="donation-method">
+          <div class="method-title">Directly Bank Transfer</div>
+          <p>Account Number: 2223330000456987 <i class="fa fa-clone icon-action" data-copy="2223330000456987"></i></p>
+          <p>Beneficiary Name: Organization</p>
+          <p>IFSC Code: WRDSBIOBNKPIS <i class="fa fa-clone icon-action" data-copy="WRDSBIOBNKPIS"></i></p>
+      </div>
+
+      <div class="donation-method">
+          <div class="method-title">UPI</div>
+          <p>Mobile Number: 8939406129 <i class="fa fa-clone icon-action" data-copy="8939406129"></i></p>
+          <p>UPI ID: 21551 <i class="fa fa-clone icon-action" data-copy="21551"></i></p>
+          <p>QR Code:</p>
+          <img src="your-qr-code-image.png" alt="QR Code" style="max-width: 100px;">
+      </div>
+  </div>
+</div>
+
+<!-- Share donover -->
+<div class="share-donover" id="sharedonover">
+  <div class="share-content">
+      <span class="close-donover" id="closeSharedonover">&times;</span>
+      <div class="section-title">Share</div>
+      <p>Would you like to connect your account details with the website?</p>
+      <button class="btn btn-success">Yes</button>
+      <button class="btn btn-danger" id="closeShare">No</button>
+  </div>
+</div>
+
+<!-- Account Overlay -->
+<div class="overlay" id="accountOverlay">
+  <span class="close-btn" id="closeAccountOverlay">&times;</span>
+  <div class="overlay-content">
+      <h4 class="text-center">Account</h4>
+      <form>
+          <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="email" placeholder="Enter your email">
+          </div>
+          <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password" placeholder="Enter your password">
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Login</button>
+          <p class="text-center mt-3">New User? <a href="#" class="text-primary">Sign Up</a></p>
+      </form>
+  </div>
+</div>
+
+<!-- SOS Overlay -->
+<div class="overlay" id="sosOverlay">
+  <span class="close-btn" id="closeSosOverlay">&times;</span>
+  <div class="overlay-content">
+      <h4 class="text-center mb-4">Emergency Services</h4>
+      <div class="sos-options">
+          <a href="#"><i class="fa fa-ambulance"></i> Urgent Medical Facility</a>
+          <a href="#"><i class="fa fa-car"></i> Emergency Transport</a>
+          <a href="#"><i class="fa fa-heart"></i> Urgent Donations</a>
+      </div>
+  </div>
+</div>
+
+
+
+   <!-- Hero Section -->
+   <section class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Inclusive Care for Elderly People</h1>
+      <p>Aadharwad offers a warm nurturing home for senior citizens combined with holistic healing and hygienic activities. We are committed to providing exceptional care for bedridden patients in Mumbai.</p>
+      <button class="btn mt-3" style="border-radius: 5px; align-items: center; gap: 5px; background-color: #D5544F;">
+        <i class="bi"></i> What we do?
+      </button>
+      <div class="row mt-4 align-items-center">
+        <div class="col-5 text-start" style="font-size: 10px;">
+          <h5>15000 Elderly Benefited</h5>
+        </div>
+        <div class="col-2">
+          <hr style="border: 1px solid white;">
+        </div>
+        <div class="col-5 text-end" style="font-size: 10px;">
+          <h5>10 Years of Experience & Trust</h5>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+<!-- Shortcuts -->
+<div class="icon-box body-shortcuts " style="margin-top: -3vh">
+    <div class="icon-item">
+      <i class="fa fa-heart"></i>
+        <span>Donate</span>
+    </div>
+    <div class="icon-item">
+        <i class="fa fa-id-card"></i>
+        <span>Admission</span>
+    </div>
+    <div class="icon-item">
+        <i class="fa fa-envelope"></i>
+        <span>Contact</span>
+    </div>
+    <div class="icon-item">
+        <i class="fa fa-comments"></i>
+        <span>Review</span>
+    </div>
+</div>
+
+
+  <!-- Pillars Section -->
+  <section class="pillars-container p-4" >
+    <h2 class="pillars-heading">Pillars of Aadharwad</h2>
+    <div class="pillars-grid" style="display: flex; width: 100%; align-items: center;">
+      <div class="pillars-row">
+        <article class="pillar-column">
+          <div class="pillar-content">
+            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/e6c60d7b05d444ed5266ac5e211755bc17c2700738c20507e952ff966f29702b?placeholderIfAbsent=true&apiKey=53ad26a35ac64481a11f945909f90e32" alt="Education initiative illustration" class="pillar-image" />
+            <h2 class="pillar-title">Change a life through education</h2>
+          </div>
+        </article>
+        <article class="pillar-column">
+          <div class="pillar-content">
+            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/fcdd926d27f3b9b81b7b7d61c3c7d3668ad8c46882da17f56e7e0dafa8190bc8?placeholderIfAbsent=true&apiKey=53ad26a35ac64481a11f945909f90e32" alt="Women rehabilitation program illustration" class="pillar-image" />
+            <h3 class="pillar-title-women">Rehabilitation of destitute women</h3>
+          </div>
+        </article>
+        <article class="pillar-column">
+          <div class="pillar-content">
+            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/56d2430b31aacb2b23181d65dc719628f5a9b07a213d1ca9a2bcdd2d79f47e5f?placeholderIfAbsent=true&apiKey=53ad26a35ac64481a11f945909f90e32" alt="Critical care services illustration" class="pillar-image" />
+            <h3 class="pillar-title-care">Bedridden and Critical Care</h3>
+          </div>
+        </article>
+        <article class="pillar-column">
+          <div class="pillar-content">
+            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/97b28db3567fde2adbb1964c013e549782a9a293cd1ea50efd8386a32a1d9eaa?placeholderIfAbsent=true&apiKey=53ad26a35ac64481a11f945909f90e32" alt="Senior citizens home illustration" class="pillar-image" />
+            <h3 class="pillar-title-senior">Home for retired senior citizens</h3>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <Br>
+  <br>
+
+  <!-- Stats -->
+  <div class="stats-container">
+    <div class="stat-box">
+        <i class="fa fa-heartbeat"></i>
+        <div class="stat-number" data-target="12450">0</div>
+        <div class="stat-title">Elderly Benefited</div>
+    </div>
+    <div class="stat-box">
+        <i class="fa fa-thumbs-up"></i>
+        <div class="stat-number" data-target="16">0</div>
+        <div class="stat-title">Years of Experience & Trust</div>
+    </div>
+    <div class="stat-box">
+        <i class="fa fa-users"></i>
+        <div class="stat-number" data-target="1230">0</div>
+        <div class="stat-title">Volunteers Enrolled</div>
+    </div>
+    <div class="stat-box">
+        <i class="fa fa-users"></i> <!-- Updated Icon for Women Empowered -->
+        <div class="stat-number" data-target="1640">0</div>
+        <div class="stat-title">Women Empowered</div>
+    </div>
+</div>
+
+  <!-- Donation Section -->
+  <section class="donation-container">
+    <div class="content-wrapper">
+      <div class="text-content">
+        <br>
+        <h2 class="heading">Change Their World. Change Yours. This changes everything.</h2>
+        <p class="description">Everyday, countless individuals face harsh realities of poverty, hunger and diseases. Your generous donation can be a lifeline, providing support. You're not investing in a better future, but also making a difference. Donate today.</p>
+      </div>
+      <button class="donate-btn" tabindex="0" aria-label="Make a donation">Donate</button> 
+      <br>
+    </div>
+  </section>
+
+  <!-- Carousel -->
+  <section class="media-highlights-section p-5">
+    <h2 class="highlight-header">Media Highlights</h2>
+    <div id="mediaHighlightsCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <!-- Slide 1 -->
+        <div class="carousel-item-media active">
+          <div class="text-column">
+            <div class="article-content">
+              <h3 class="article-title">
+                MID-DAY Newspaper Highlights Adharwad's Old Age Home and approach to resident's wellbeing
+              </h3>
+              <p class="article-description">
+                Residents at Adharwad enjoy a comfortable and secure lifestyle, surrounded by compassionate caregivers. The facility's modern infrastructure and lush green surroundings create a peaceful ambiance. Adharwad strives to enhance the quality of life for its residents, fostering a sense of belonging and purpose....
+              </p>
+            </div>
+          </div>
+          <div class="media-column">
+            <div class="image-container">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/4c04734a79e42ae0d7a98960d69e3f6497eca802e66eac4721d2980694c3044c?placeholderIfAbsent=true&apiKey=53ad26a35ac64481a11f945909f90e32" class="main-image" alt="Adharwad Old Age Home facility and surroundings" />
+              <div class="logo-wrapper">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/08a0e1e81a3dc5b5856da22d1bdc92f0b908150e305ef31619ef55ccee23bdae?placeholderIfAbsent=true&apiKey=53ad26a35ac64481a11f945909f90e32" class="logo" alt="MID-DAY Newspaper logo" />
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+          <div class="text-column">
+            <div class="article-content">
+              <h3 class="article-title">
+                Times of India: Adharwad's innovative healthcare for senior citizens
+              </h3>
+              <p class="article-description">
+                Adharwad is setting benchmarks in healthcare services for senior citizens. By providing customized care plans and a vibrant community, the facility ensures seniors can age gracefully and live with dignity...
+              </p>
+            </div>
+          </div>
+          <div class="media-column">
+            <div class="image-container">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/sample2.jpg" class="main-image" alt="Adharwad Times of India coverage" />
+              <div class="logo-wrapper">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/timesofindia_logo.png" class="logo" alt="Times of India logo" />
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Slide 3 -->
+        <div class="carousel-item">
+          <div class="text-column">
+            <div class="article-content">
+              <h3 class="article-title">
+                Hindustan Times: Redefining Elderly Care at Adharwad
+              </h3>
+              <p class="article-description">
+                Hindustan Times covers the journey of Adharwad as a haven for the elderly. With its holistic approach to physical, emotional, and social well-being, Adharwad stands out as a leading institution in elderly care...
+              </p>
+            </div>
+          </div>
+          <div class="media-column">
+            <div class="image-container">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/sample3.jpg" class="main-image" alt="Adharwad Hindustan Times article" />
+              <div class="logo-wrapper">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/hindustantimes_logo.png" class="logo" alt="Hindustan Times logo" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#mediaHighlightsCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#mediaHighlightsCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Reviews Section -->
+  <section class="review-section">
+    <h2>Reviews</h2>
+    <div id="reviewCarousel" class="carousel slide" data-bs-ride="carousel">
+      <!-- Indicators -->
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#reviewCarousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#reviewCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#reviewCarousel" data-bs-slide-to="2"></button>
+      </div>
+
+      <!-- Carousel Items -->
+      <div class="carousel-inner">
+        <!-- Review 1 -->
+        <div class="carousel-item active">
+          <p class="review-quote">
+            My father spent his golden years at Adharwad, and we couldn’t have been more pleased. The staff was incredibly caring and attentive, always going the extra mile to ensure his comfort and well-being. The facility was clean, well-maintained, and filled with warmth. It was truly a home away from home.
+          </p>
+          <img src="./reviews/1.png" alt="Reviewer Image" class="review-image">
+          <div class="review-author">Sandeep Prajapati</div>
+          <div class="review-author-subtitle">ABC Softwares</div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="carousel-item">
+          <p class="review-quote">
+            Adharwad exceeded all expectations when it came to caring for my mother. The team created an environment of warmth and comfort, and their attention to detail made all the difference. I will always be grateful for the kindness and care they provided. It's a place of love and respect for everyone.
+          </p>
+          <img src="./reviews/2.png" alt="Reviewer Image" class="review-image">
+          <div class="review-author">Nisha Sharma</div>
+          <div class="review-author-subtitle">XYZ Technologies</div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="carousel-item">
+          <p class="review-quote">
+            I am so glad we found Adharwad for my uncle. Their dedication to making him comfortable and happy was incredible. From the staff’s smiling faces to their excellent facilities, Adharwad offers a home-like experience for everyone who steps through their doors. Highly recommended!
+          </p>
+          <img src="./reviews/3.png" alt="Reviewer Image" class="review-image">
+          <div class="review-author">Ramesh Kumar</div>
+          <div class="review-author-subtitle">PQR Corp</div>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#reviewCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#reviewCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
+
+<!-- Footer -->
+<footer id="footer" class="footer-1">
+
+  <div class="main-footer widgets typo-light" style="background-color: #4D2A30;">
+  <div class="container">
+  <div class="row " style="margin-top: 5vh; margin-bottom: -7vh;">
+
+
+
+  <div class="col-xs-12 col-sm-6 col-md-3">
+      
+  <div class="widget subscribe no-box">
+   <img src="./img/./adharwadlogo.png" style="height: 5.5vh;">  <br> <span></span>
+  <br>
+   <p>Adharwad Niradhar & 
+  Apang Mahila Utkarsh 
+  Trust </p>
+  </div>
+  </div>
+  
+  <div class="col-xs-12 col-sm-6 col-md-3">
+  <div class="widget no-box">
+  <h5 class="widget-title">Quick Links</h5>
+  <br>
+  <ul class="thumbnail-widget">
+  <li>
+  <div class="thumb-content"><a href="#.">About Us</a></div>	
+  </li>
+  <li>
+  <div class="thumb-content"><a href="#.">Blogs</a></div>	
+  </li>
+  <li>
+  <div class="thumb-content"><a href="#.">Events </a></div>	
+  </li>
+  <li>
+  <div class="thumb-content"><a href="#.">Success Stories</a></div>	
+  </li>
+  <li>
+  <div class="thumb-content"><a href="#.">Careers</a></div>	
+  </li>
+  <li>
+  <div class="thumb-content"><a href="#.">SOS</a></div>	
+  </li>
+  
+  </ul>
+  </div>
+  </div>
+  
+  <div class="col-xs-12 col-sm-6 col-md-3">
+  <div class="widget no-box">
+  <h5 class="widget-title">Get Started</h5>
+  <br>
+  <p>Get access to your full Training and Marketing Suite.</p>
+  <a class="btn" href="https://www.adharwad.org/donation/" target="_blank" style="background-color: #b52b3a;">Donate Now</a>
+  </div>
+  </div>
+  
+  <div class="col-xs-12 col-sm-6 col-md-3">
+  
+  <div class="widget no-box">
+  <h5 class="widget-title">Contact Us</h5>
+  <br>
+  
+  <p><a href="https://maps.app.goo.gl/46iX1qpekhqdEFA18?g_st=iw" title="Adharwad">Plot No 20, Sector 1,
+  Kopar Khairane, 
+  Navi Mumbai - 400709,
+  Behind Terna International School</a></p>
+  <ul class="social">
+      <li><a href="https://twitter.com" target="_blank"><i class="bi bi-twitter"></i></a></li>
+      <li><a href="https://instagram.com" target="_blank"><i class="bi bi-instagram"></i></a></li>
+      <li><a href="https://pinterest.com" target="_blank"><i class="bi bi-pinterest"></i></a></li>
+      <li><a href="https://youtube.com" target="_blank"><i class="bi bi-youtube"></i></a></li>
+    </ul>
+  </div>
+  </div>
+  
+  </div>
+  </div>
+  </div> 
+  <div class="footer-copyright">
+  <div class="container">
+  <div class="row">
+  <div class="col-md-12 text-center">
+  <p>Copyright Company Name © 2022. All rights reserved.</p>
+  </div>
+  </div>
+  </div>
+  </div>
+  </footer>
+
+
+
+
+
+
+
+
+<script>
+  document.getElementById('accountTab').addEventListener('click', function () {
+    document.getElementById('accountOverlay').style.display = 'flex';
+  });
+
+  document.getElementById('closeAccountOverlay').addEventListener('click', function () {
+    document.getElementById('accountOverlay').style.display = 'none';
+  });
+
+  document.getElementById('sosTab').addEventListener('click', function () {
+    document.getElementById('sosOverlay').style.display = 'flex';
+  });
+
+  document.getElementById('closeSosOverlay').addEventListener('click', function () {
+    document.getElementById('sosOverlay').style.display = 'none';
+  });
+
+  //donate 
+      // Open Donation donover
+      document.getElementById('opendonoverBtn').addEventListener('click', () => {
+        document.getElementById('donationdonover').style.display = 'flex';
+    });
+
+    // Close Donation donover
+    document.getElementById('closedonover').addEventListener('click', () => {
+        document.getElementById('donationdonover').style.display = 'none';
+    });
+
+    // Close Donation donover on clicking outside the content
+    window.addEventListener('click', (e) => {
+        if (e.target === document.getElementById('donationdonover')) {
+            document.getElementById('donationdonover').style.display = 'none';
+        }
+    });
+
+    // Show Tooltip and Copy to Clipboard
+    document.querySelectorAll('.icon-action').forEach(icon => {
+        icon.addEventListener('click', (e) => {
+            const textToCopy = e.target.getAttribute('data-copy');
+            navigator.clipboard.writeText(textToCopy);
+            const tooltip = document.createElement('div');
+            tooltip.classList.add('tooltip-popup');
+            tooltip.innerText = 'Copied';
+            e.target.parentNode.appendChild(tooltip);
+            tooltip.style.display = 'block';
+            setTimeout(() => {
+                tooltip.remove();
+            }, 1500);
+        });
+    });
+
+    // Open Share donover
+    document.querySelectorAll('.fa-share').forEach(shareIcon => {
+        shareIcon.addEventListener('click', () => {
+            document.getElementById('sharedonover').style.display = 'flex';
+        });
+    });
+
+    // Close Share donover
+    document.getElementById('closeSharedonover').addEventListener('click', () => {
+        document.getElementById('sharedonover').style.display = 'none';
+    });
+
+    // Close Share donover on clicking outside the content
+    window.addEventListener('click', (e) => {
+        if (e.target === document.getElementById('sharedonover')) {
+            document.getElementById('sharedonover').style.display = 'none';
+        }
+    });
+
+    // Close Share donover when clicking "No"
+    document.getElementById('closeShare').addEventListener('click', () => {
+        document.getElementById('sharedonover').style.display = 'none';
+    });
+
+  // Function to animate numbers
+  const animateNumbers = () => {
+        const statNumbers = document.querySelectorAll('.stat-number');
+
+        statNumbers.forEach((stat) => {
+            const target = +stat.getAttribute('data-target');
+            const increment = target / 150; // Adjust increment for 1.5 seconds
+
+            let start = Math.floor(Math.random() * (target / 2)); // Random offset start
+            const updateNumber = () => {
+                start += increment;
+
+                if (start >= target) {
+                    stat.textContent = target;
+                } else {
+                    stat.textContent = Math.floor(start);
+                    setTimeout(updateNumber, 10); // Controls speed
+                }
+            };
+
+            updateNumber();
+        });
+    };
+
+
+    // Call the function on page load
+    window.onload = animateNumbers;
+
+
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
